@@ -90,10 +90,10 @@ def sendPayment():
 
             #update payments Transactional Database
             try:
-                connection = mysql.connector.connect(host='localhost',
-                                            database='ezstock_payment',
-                                            user='root',
-                                            password='')
+                connection = mysql.connector.connect(host='us-cdbr-iron-east-02.cleardb.net',
+                                            database='heroku_bda8ea0c956826f',
+                                            user='b26c9e886c4967',
+                                            password='4698d536')
 
                 cursor = connection.cursor(prepared=True)
 
