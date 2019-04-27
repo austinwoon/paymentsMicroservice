@@ -5,6 +5,9 @@ from mysql.connector import Error
 from mysql.connector import errorcode
 from datetime import datetime
 
+@app.route("/")
+def index():
+    return "heroku deployment for payment"
 app = Flask(__name__)
 @app.route("/api/makeTransfer/", methods=["POST"])
 
