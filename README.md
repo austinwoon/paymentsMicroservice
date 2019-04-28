@@ -9,6 +9,7 @@ Diagram of how Payments Microservice Works: (diagram credits to https://github.c
 
 Payments microservice will call an external service, DBS Bank account, and a clients service for asynchronus notification.
 
+### Sample Input
 Consumes a JSON input via HTTP POST method. Sample input for body below:
  ``` 
   {
@@ -21,3 +22,13 @@ Consumes a JSON input via HTTP POST method. Sample input for body below:
 
 Transfer type is either "toBankAccount" or "FromBankAccount".
 
+### Sample Output
+
+Outputs a JSON Object containing transfer status and transfer amount.
+
+```
+ {
+   "status": "success",
+   "amount" : 1000
+ }
+ ```
