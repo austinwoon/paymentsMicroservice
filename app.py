@@ -129,7 +129,7 @@ def sendPayment():
             }
 
             return jsonify(responseStatus)
-
+    print(failureStatus)
     return failureStatus
 
     
