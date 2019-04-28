@@ -1,6 +1,10 @@
 Payments MicroService for stock application: http://esd-ezstock.herokuapp.com/ (type in orange and orange123 for test user access)
 
+### Functionality of Microservice
 Microservice helps a client on our application withdraw money from his e-Wallet to his bank account or deposit money from his Bank account to his E-wallet.
+
+### Microservice Architecture
+[Imgur](https://i.imgur.com/9jyXlDz.jpg)
 
 Consumes a JSON input via HTTP POST method. Sample input for body below:
  ``` 
