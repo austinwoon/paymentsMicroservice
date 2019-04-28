@@ -7,7 +7,15 @@ Microservice helps a client on our application withdraw money from his e-Wallet 
 Diagram of how Payments Microservice Works: (diagram credits to https://github.com/elihuansen)
 ![](https://i.imgur.com/9jyXlDz.jpg?raw=true)
 
-Payments microservice will call an external service, DBS Bank account, and a clients service for asynchronus notification.
+#### Explanation
+1) Client will make an bank transfer request via the Trading Portal UI.
+2) Trading Portal NodeJS Server makes a POST request to Payments service.
+3) Payment service query DBS Sandpox API to get access token to make transfer.
+4) Payments service will then query Clients Service for the PayeeID (bank account ID).
+5) Payment Service will issue a command to DBS Bank Sandbox API to make the transfer.
+6) Upon success, Payments service will issue a command to clients service to update the balance.
+7) When balance is updated, Clients service will send an asynchronus notification to RabbitMQ which      will then notify client the balance has been updated through our Telegram Service.
+8) Traidng Portal UI will display cash transfer success/failure to client. 
 
 ### Sample Input
 Consumes a JSON input via HTTP POST method. Sample input for body below:
