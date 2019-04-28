@@ -7,7 +7,7 @@ Microservice helps a client on our application withdraw money from his e-Wallet 
 Diagram of how Payments Microservice Works: (diagram credits to https://github.com/elihuansen)
 ![](https://i.imgur.com/9jyXlDz.jpg?raw=true)
 
-#### Explanation
+#### Explanation of Process Diagram
 1) Client will make an bank transfer request via the Trading Portal UI.
 2) Trading Portal NodeJS Server makes a POST request to Payments service.
 3) Payment service query DBS Sandpox API to get access token to make transfer.
