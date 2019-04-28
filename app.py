@@ -50,7 +50,10 @@ def sendPayment():
 
     
     #request client service to get payeeId details
-    payeeId = requests.get("http://huansenlim2017-eval-prod.apigee.net/esdbroker/api/v1/clients/info/" + username).json()["payeeId"]
+    r = requests.get("http://huansenlim2017-eval-prod.apigee.net/esdbroker/api/v1/clients/info/" + username).json()
+
+    payeeId = r["payeeId"]
+    currentBalance = r["balance"]
 
 
     #make Transfer of money
@@ -78,7 +81,7 @@ def sendPayment():
         "accessToken": accessToken
     }
 
-    print('hello, its come to this')
+    print('hello, its come to this'090)
 
     r = requests.post("https://www.dbs.com/sandbox/api/sg/v1/transfers/creditPayeeAccount",
     data = json.dumps(transferDetails), headers = transferHeaders)
@@ -86,7 +89,8 @@ def sendPayment():
     #update client balance on success status for both payments and clients database
     if str(r.status_code) == "200" or str(r.status_code) == "201":
         #updateBalannce on ClientSide
-        updateBalanceStatus = requests.get("http://huansenlim2017-eval-prod.apigee.net/esdbroker/api/v1/clients/" + username + "/updateBalance/" + str(amount)).json()["status"]
+        newBalance = currentBalance + amount
+        updateBalanceStatus = requests.get("http://huansenlim2017-eval-prod.apigee.net/esdbroker/api/v1/clients/" + username + "/updateBalance/" + str(newBalance)).json()["status"]
 
         if updateBalanceStatus == "success": 
 
