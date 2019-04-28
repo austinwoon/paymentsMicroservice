@@ -81,7 +81,7 @@ def sendPayment():
         "accessToken": accessToken
     }
 
-    print('hello, its come to this'090)
+    print('hello, its come to this')
 
     r = requests.post("https://www.dbs.com/sandbox/api/sg/v1/transfers/creditPayeeAccount",
     data = json.dumps(transferDetails), headers = transferHeaders)
