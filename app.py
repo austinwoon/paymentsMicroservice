@@ -8,25 +8,15 @@ import sys
 
 
 app = Flask(__name__)
-
-@app.route("/")
-def index():
-    return "heroku deployment for payment"
-
-@app.route("/api/makeTransfer/", methods=["GET"])
-
-# def get_details():
-#     return jsonify({'payload': user_details})
-
+@app.route("/api/makeTransfer/", methods=["POST"])
 def sendPayment():
 
     failureStatus = {
         "status": "failure"
     }
-    
-    return request.form
-    # if not request.json or 'username' not in request.json or 'transfer_amt' not in request.json or 'transfer_type' not in request.json or 'assertion' not in request.json:
-    #     abort(400)
+
+    if not request.json or 'username' not in request.json or 'transfer_amt' not in request.json or 'transfer_type' not in request.json or 'assertion' not in request.json:
+        abort(400)
 
     amount = request.json['transfer_amt']
 
