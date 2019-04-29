@@ -126,6 +126,10 @@ def sendPayment():
                 "transferAmount" : amount
             }
 
+            url = "https://ezstock-telegram.herokuapp.com/telegram/sendMessage"
+            message = f"Your new balance is {newBalance}"
+            r = requests.post(url, json={"username": username, "message": message})
+
             return jsonify(responseStatus)
     print("fail!!!!")
     return failureStatus
