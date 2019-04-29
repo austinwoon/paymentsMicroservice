@@ -23,7 +23,8 @@ def sendPayment():
     failureStatus = {
         "status": "failure"
     }
-    return jsonify(request.json)
+    
+    return jsonify(request.text)
     # if not request.json or 'username' not in request.json or 'transfer_amt' not in request.json or 'transfer_type' not in request.json or 'assertion' not in request.json:
     #     abort(400)
 
