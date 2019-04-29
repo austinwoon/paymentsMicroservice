@@ -8,7 +8,7 @@ import sys
 
 
 app = Flask(__name__)
-@app.route("/api/makeTransfer/", methods=["POST"])
+@app.route("/api/makeTransfer", methods=["POST"])
 def sendPayment():
 
     failureStatus = {
