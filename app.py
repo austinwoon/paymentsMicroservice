@@ -4,6 +4,7 @@ import mysql.connector
 from mysql.connector import Error
 from mysql.connector import errorcode
 from datetime import datetime
+import sys
 
 
 app = Flask(__name__)
@@ -19,6 +20,7 @@ def index():
 
 def sendPayment():
     print(jsonify(request.json))
+    sys.stdout.flush()
     return jsonify(request.json)
 
     failureStatus = {
