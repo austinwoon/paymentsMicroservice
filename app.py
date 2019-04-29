@@ -19,6 +19,8 @@ def index():
 
 def sendPayment():
 
+    return jsonify(request.json)
+
     failureStatus = {
         "status": "failure"
     }
