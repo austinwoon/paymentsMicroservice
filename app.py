@@ -13,7 +13,7 @@ app = Flask(__name__)
 def index():
     return "heroku deployment for payment"
 
-@app.route("/api/makeTransfer/", methods=["POST"])
+@app.route("/api/makeTransfer/", methods=["GET"])
 
 # def get_details():
 #     return jsonify({'payload': user_details})
