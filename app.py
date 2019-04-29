@@ -18,7 +18,7 @@ def index():
 #     return jsonify({'payload': user_details})
 
 def sendPayment():
-
+    print jsonify(request.json)
     return jsonify(request.json)
 
     failureStatus = {
